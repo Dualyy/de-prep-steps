@@ -240,9 +240,9 @@ def test_contains_no_repeats():
 
 
 def check_usernames_available(usernames, *names):
-    list_of_names = [*names]
+    potential_user_names = [*names]
     for name in usernames:
-        if name in list_of_names:
+        if name in potential_user_names:
             return False
     return True
     pass
