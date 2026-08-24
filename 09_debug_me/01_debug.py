@@ -9,7 +9,7 @@ from test_api.checks import run_test, skip_test, format_err_msg
 #  Fix the function below to pass the test!
 
 def say_hello():
-    return "Hello Dat Engineers."
+    return "Hello Data Engineers."
 
 
 @run_test

@@ -22,10 +22,10 @@ Can you work out what needs changing to make the function pass all the tests?
 
 def count_occurrences(list_to_check, value):
     count = 0
-    for i in range(list_to_check):
-        if list_to_check[i] = value:
-            count + 1
-            return count
+    for i in range(len(list_to_check)):
+        if list_to_check[i] == value:
+            count += 1
+    return count
 
 
 # Do not change tests!
@@ -95,28 +95,28 @@ def add_guests_to_party(invitees):
         ]
     }
     for invitee in invitees:
-        if invitee['RSVP']:
-            party.append({'name': invitee['nome']})
-    return party
+        if invitee['RSVP'] == 'yes':
+            party["guests"].append({'name': invitee['name']})
+    return party["guests"]
 
 
 # Do not change tests!
 
-@skip_test
+@run_test
 def add_guests_to_party_should_return_a_list():
     result = add_guests_to_party([])
     expected = []
     assert isinstance(result, list), format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def add_guests_to_party_should_return_unchanged_guestlist_if_no_invitees():
     result = add_guests_to_party([])
     expected = [{"name": "Cat"}, {"name": "Kyle"}]
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def add_guests_to_party_should_return_unchanged_guestlist_if_NO_RSVPs():
     result = add_guests_to_party(
         [{"name": "Chon", "RSVP": "no"}, {"name": "Verity", "RSVP": "no"}]
@@ -125,7 +125,7 @@ def add_guests_to_party_should_return_unchanged_guestlist_if_NO_RSVPs():
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def add_guests_to_party_should_return_new_guests_if_ALL_RSVP_yes():
     result = add_guests_to_party(
         [{"name": "Liam", "RSVP": "yes"}, {"name": "Haz", "RSVP": "yes"}]
@@ -134,7 +134,7 @@ def add_guests_to_party_should_return_new_guests_if_ALL_RSVP_yes():
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def add_guests_to_party_should_return_new_guests_if_SOME_RSVP_yes():
     result = add_guests_to_party(
         [

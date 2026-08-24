@@ -17,7 +17,7 @@ def access_dictionary(mentor):
         "Kyle": "Battlestar galactica",
         "Chon": "Rick and Morty"
     }
-    return favourite_show.mentor
+    return favourite_show[mentor]
 
 
 @run_test

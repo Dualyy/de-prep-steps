@@ -9,7 +9,7 @@ from test_api.checks import run_test, skip_test, format_err_msg
 
 # Fix the function below to pass the test!
 
-def multiply_by_3():
+def multiply_by_3(number):
     return number * 3
 
 

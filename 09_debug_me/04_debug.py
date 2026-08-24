@@ -17,7 +17,7 @@ def shopping_trip(money, item):
         "Kyle's house": 49,
         "Chon's glasses": 23
     }
-    if money <= items_and_prices[item]:
+    if money >= items_and_prices[item]:
         return f"You can buy {item}!"
 
     return f"You can't afford {item}..."
@@ -34,7 +34,7 @@ def test_returns_message_enough_money():
     assert result_2 == expected_2, format_err_msg(expected_2, result_2)
 
 
-@skip_test
+@run_test
 def test_returns_message_not_enough_money():
     expected = "You can't afford Simon's beard..."
     result = shopping_trip(50, "Simon's beard")

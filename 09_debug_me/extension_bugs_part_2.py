@@ -21,7 +21,7 @@ tests?
 
 def get_first_item(my_list):
     first_item = my_list[0]
-    return firstitem
+    return first_item
 
 
 # Do not change tests!
@@ -53,21 +53,21 @@ Can you work out what needs changing to make the function pass all the tests?
 """
 
 
-def split_string():
+def split_string(str):
     return list(str)
 
 
 # Do not change tests!
 
 
-@skip_test
+@run_test
 def split_string_should_split_lowercase_string():
     result = split_string("string")
     expected = ["s", "t", "r", "i", "n", "g"]
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def split_string_should_split_titlecase_string():
     result = split_string("Northcoders")
     expected = ["N", "o", "r", "t", "h", "c", "o", "d", "e", "r", "s"]
@@ -88,27 +88,30 @@ Can you work out what needs changing to make the function pass all the tests?
 """
 
 
-def add_bread(person, loaf):
-    person["loaf"] == loaf
-    return
+def add_bread(person, loaf = "granary"):
+    if loaf:
+        person["fave_bread"] = loaf
+    else : 
+        person["fave_bread"] = "granary"
+    return person
 
 
 # Do not change tests!
-@skip_test
+@run_test
 def add_bread_should_add_favourite_bread_rye():
     result = add_bread({"name": "Joe"}, "rye")
     expected = {"name": "Joe", "fave_bread": "rye"}
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def add_bread_should_add_favourite_bread_granary():
     result = add_bread({"name": "Paul"}, "granary")
     expected = {"name": "Paul", "fave_bread": "granary"}
     assert result == expected, format_err_msg(expected, result)
 
 
-@skip_test
+@run_test
 def add_bread_should_add_default_favourite_bread_granary():
     result = add_bread({"name": "Poonam"})
     expected = {"name": "Poonam", "fave_bread": "granary"}
