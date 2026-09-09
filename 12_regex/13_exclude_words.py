@@ -30,6 +30,19 @@ def exclude_words(text):
     - "I study at Northcoders." should be "I study at Northcoders."
     - "IBM hired a lot of coders." should be "IBM hired a lot of ."
     """
+    
+    regex = re.compile(r'(north)\b|\b(coders)\b',re.IGNORECASE)
+    word_list = text.split(" ")
+    
+    for index, word in enumerate(word_list):
+        if(regex.search(text)):
+            if word == regex.search(text).group():
+                word_list.pop(index)
+
+    result = " ".join(word_list)
+
+    #I later found out there is .sub(x,y) so regex.sub('',text) could work here with a few adjustments
+    return result
     pass
 
 

@@ -23,6 +23,13 @@ def sum_nums(text):
 
     If there are no numbers, you should return 0
     """
+    regex = re.compile(r'\d+')
+    digits = regex.findall(text)
+    sum = 0
+    for num in digits:
+        sum += int(num)
+
+    return sum
     pass
 
 

@@ -24,7 +24,8 @@ def extract_code(text):
     You should extract that number from the string and return it as
     an integer
     """
-    pass
+    regex = re.compile(r'\d+') # Match any digit with 1 or more preceding tokens
+    return int(regex.findall(text)[0]) # return int of match - findall return a list so we need to go to index 0
 
 
 @run_test

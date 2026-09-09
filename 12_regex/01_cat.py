@@ -14,8 +14,7 @@ from test_api.checks import run_test, skip_test, format_err_msg
 
 def cat():
     # Your pattern should **match** a string containing the characters cat
-    YOUR_REGEX_HERE = 'x'
-    # replace 'x' with an appropriate regular expression pattern
+    YOUR_REGEX_HERE = r'cat'    # replace 'x' with an appropriate regular expression pattern
     return re.compile(YOUR_REGEX_HERE)
 
 
@@ -33,7 +32,7 @@ def test_cat_matches_correctly():
         format_err_msg((0, 3), cat_match_object.span())
 
 
-@skip_test
+@run_test
 def test_matches_cat_at_start_of_string_correctly():
     cat_match_object = cat().match('cat11234')
 
@@ -47,7 +46,7 @@ def test_matches_cat_at_start_of_string_correctly():
         format_err_msg((0, 3), cat_match_object.span())
 
 
-@skip_test
+@run_test
 def test_matches_cat_at_end_of_string_correctly():
     cat_match_object = cat().search("36237cat")
 
@@ -61,7 +60,7 @@ def test_matches_cat_at_end_of_string_correctly():
         format_err_msg((5, 8), cat_match_object.span())
 
 
-@skip_test
+@run_test
 def test_matches_cat_in_the_middle_of_string_correctly():
     cat_match_object = cat().search('asdcatfgh')
 
@@ -75,7 +74,7 @@ def test_matches_cat_in_the_middle_of_string_correctly():
         format_err_msg((3, 6), cat_match_object.span())
 
 
-@skip_test
+@run_test
 def test_ignores_capitalised_cats():
     cat_match_object = cat().search('Catalogue')
 
@@ -83,7 +82,7 @@ def test_ignores_capitalised_cats():
         format_err_msg(None, cat_match_object)
 
 
-@skip_test
+@run_test
 def test_ignores_incomplete_cats():
     assert not cat().search("ca123"), \
         format_err_msg(None, cat().search("ca123"))
