@@ -28,6 +28,7 @@ def has_exactly_2_consecutive_ls(text):
     """
     regex = re.compile(r'(ll){1}')
 
+
     return True if len(regex.findall(text)) == 1 else False
 
 
